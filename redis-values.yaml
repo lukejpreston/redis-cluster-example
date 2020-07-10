@@ -1,0 +1,14 @@
+persistence:
+  enabled: true
+  path: /bitnami-default/redis/data
+  matchLabels:
+    foo: bar
+redis:
+  extraVolumes:
+    - name: backup
+      hostPath:
+        path: /c/Users/<USERNAME>/Projects/redis-cluster-example/mnt/bitnami
+        type: Directory
+  extraVolumeMounts:
+    - mountPath: /bitnami
+      name: backup
